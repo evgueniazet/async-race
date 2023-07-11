@@ -10,6 +10,15 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.(scss|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'resolve-url-loader',
+                    { loader: 'sass-loader', options: { sourceMap: true } },
+                ],
+            }
         ],
     },
     resolve: {
