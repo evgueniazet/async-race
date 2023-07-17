@@ -1,3 +1,4 @@
-import './styles/styles.scss'
+import "./styles/styles.scss";
+import { initRouting } from "./routes/initRouting";
 
-console.log("Hello, SPA!");
+document.addEventListener("DOMContentLoaded", initRouting);
