@@ -14,6 +14,4 @@ export const addButtonsSettings = (
 
   const buttonGenerateCars = createButton("button-generate", "Generate Cars");
   buttonsWrapper.appendChild(buttonGenerateCars);
-
-  console.log("buttonsWrapper", buttonsWrapper);
 };

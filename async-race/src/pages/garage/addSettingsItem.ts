@@ -7,8 +7,6 @@ export const addSettingsItem = (
   field: HTMLElement,
   buttonText: string
 ) => {
-//   const main = document.querySelector("main");
-
   main?.appendChild(field);
 
   const comboboxField = createCombobox();
