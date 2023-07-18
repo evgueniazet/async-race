@@ -22,7 +22,6 @@ export const createRaceField = (racesField: HTMLElement): void => {
   const createCar = (car: ICar) => {
     const race: HTMLElement = createElement("div", "race");
     racesField.appendChild(race);
-    race.id = String(car.id);
 
     const raceHeader: HTMLElement = createElement("div", "race-header");
     race.appendChild(raceHeader);
@@ -49,6 +48,7 @@ export const createRaceField = (racesField: HTMLElement): void => {
     const carWrapper: HTMLElement = createElement("div", "car-wrapper");
     raceWrapper.appendChild(carWrapper);
     carWrapper.innerHTML = carIcon;
+    carWrapper.id = String(car.id);
 
     const carElem = race.querySelector(".car") as HTMLElement;
 

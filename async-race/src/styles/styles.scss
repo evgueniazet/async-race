@@ -1,8 +1,30 @@
 @import '../styles/variables.scss';
-@import '../pages/garage/styles/garage.scss';
-@import '../pages/winners/styles/winners.scss';
+@import '../styles/garage.scss';
+@import '../styles/winners.scss';
+@import './animations/blink.scss';
 
 body {
     background-color: $bg;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px 50px;
+}
+
+.navigation-link {
+    color: $light;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid $primaryLight;
+    border-radius: 6px;
+    padding: 6px;
+    animation: blink 1s infinite;
+    transition: color .3s ease-in-out;
+
+    &:not(:first-child) {
+        margin-left: 15px;
+    }
+
+    &:hover {
+        color: $lightBright;
+        transition: color .3s ease-in-out;
+    }
 }

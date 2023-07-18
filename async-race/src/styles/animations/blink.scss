@@ -1,0 +1,15 @@
+@import '../variables.scss';
+
+@keyframes blink {
+    0% {
+        border-color: $primary;
+    }
+
+    50% {
+        border-color: $primaryLight;
+    }
+
+    100% {
+        border-color: $primary;
+    }
+}

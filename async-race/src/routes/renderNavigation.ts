@@ -1,12 +1,14 @@
-export const renderNavigation = (): HTMLElement => {
-  const nav: HTMLElement = document.createElement("nav");
+import { createElement } from "../utils/createElement";
 
-  const garageLink: HTMLElement = document.createElement("a");
+export const renderNavigation = (): HTMLElement => {
+  const nav: HTMLElement = createElement("nav", "navigation");
+
+  const garageLink: HTMLElement = createElement("a", "navigation-link");
   garageLink.setAttribute("href", "/");
   garageLink.textContent = "To Garage";
   nav.appendChild(garageLink);
 
-  const winnersLink: HTMLElement = document.createElement("a");
+  const winnersLink: HTMLElement = createElement("a", "navigation-link");
   winnersLink.setAttribute("href", "/winners");
   winnersLink.textContent = "To Winners";
   nav.appendChild(winnersLink);
