@@ -9,7 +9,7 @@ export const initRouting = () => {
   const navigation = renderNavigation();
   body.appendChild(navigation);
 
-  const main = renderMain("This is the garage page");
+  const main = renderMain("");
   body.appendChild(main);
 
   const links = document.querySelectorAll("a");

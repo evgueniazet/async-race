@@ -1,3 +1,7 @@
+@import '../styles/variables.scss';
+@import '../pages/garage/styles/garage.scss';
+
 body {
-    background-color: rgb(146, 165, 146)
+    background-color: $bg;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

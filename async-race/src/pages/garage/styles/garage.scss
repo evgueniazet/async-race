@@ -1,0 +1,99 @@
+@import '../../../styles//variables.scss';
+
+.create-field {
+    display: flex;
+}
+
+.update-field {
+    display: flex;
+}
+
+.garage {
+    &-title {
+        color: $primary;
+    }
+
+    &-subtitle {
+        color: $secondary;
+    }
+
+    &-button {
+        background-color: transparent;
+        border: 1px solid $secondaryDark;
+        border-radius: 4px;
+        color: $secondaryDark;
+        cursor: pointer;
+        padding: 8px;
+        height: 30px;
+
+        &:hover {
+            color: $secondary;
+            border: 1px solid $secondary;
+            transition: color .3s ease, border .3s ease;
+        }
+
+        &:not(:first-child) {
+            margin-left: 10px;
+        }
+    }
+}
+
+.race {
+
+    &-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-header {
+        display: flex;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 115px;
+            width: 100%;
+            border-bottom: 2px dashed $secondaryDark;
+        }
+
+        &-button {
+            background-color: transparent;
+            border: 1px solid $primary;
+            border-radius: 4px;
+            color: $primary;
+            cursor: pointer;
+            padding: 8px;
+            height: 30px;
+
+            &:hover {
+                color: $primaryLight;
+                border: 1px solid $primaryLight;
+                transition: color .3s ease, border .3s ease;
+            }
+
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+        }
+
+        &-title {
+            color: $primaryLight;
+            margin: 0;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.car {
+    width: 100px;
+}
+
+.flag {
+
+    margin-top: 15px;
+    width: 70px;
+    stroke: $red;
+    fill: $red;
+}

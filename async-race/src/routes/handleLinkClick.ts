@@ -1,8 +1,10 @@
 import { renderMain } from "./renderMain";
+import { addGaragePage } from "../pages/garage/addGaragePage";
+import { addWinnersPage } from "../pages/winners/addWinnersPage";
 
-const routes: Record<string, string> = {
-  "/": "This is the garage page",
-  "/winners": "This is the winners page",
+const routes: Record<string, Function> = {
+  "/": addGaragePage,
+  "/winners": addWinnersPage,
 };
 
 export const handleLinkClick = (event: Event) => {
@@ -13,13 +15,9 @@ export const handleLinkClick = (event: Event) => {
   const href = link.getAttribute("href");
   if (!href) return;
 
-  const content = routes[href];
+  const pageFunction = routes[href];
 
-  if (content) {
-    const main: HTMLElement | null = document.querySelector("main");
-    if (!main) return;
-
-    main.textContent = "";
-    main.appendChild(renderMain(content));
+  if (pageFunction) {
+    pageFunction();
   }
 };
