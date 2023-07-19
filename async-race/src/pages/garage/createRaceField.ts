@@ -3,6 +3,7 @@ import { createButton } from "../../pages/components/createButton";
 import { fetchCarsData } from "../../api/fetchCarsData";
 import { carIcon } from "../../icons/carIcon";
 import { flagIcon } from "../../icons/flagIcon";
+import { removeCar } from "../../controllers/removeCar";
 
 interface ICar {
   name: string;
@@ -37,6 +38,8 @@ export const createRaceField = (racesField: HTMLElement): void => {
       "Remove"
     );
     raceHeader.appendChild(removeButton);
+
+    removeCar(removeButton);
 
     const title: HTMLElement = createElement("h3", "race-header-title");
     title.innerText = car.name;
