@@ -4,12 +4,6 @@ import { addSettings } from "./addSettings";
 import { createRaceField } from "./createRaceField";
 import { fetchCarsData } from "../../api/fetchCarsData";
 
-interface ICar {
-  name: string;
-  color: string;
-  id: number;
-}
-
 export const addGaragePage = async (): Promise<void> => {
   try {
     const cars = await fetchCarsData();

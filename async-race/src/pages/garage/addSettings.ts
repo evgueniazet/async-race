@@ -1,6 +1,7 @@
 import { createElement } from "../../utils/createElement";
 import { addSettingsItem } from "./addSettingsItem";
 import { addButtonsSettings } from "./addButtonsSettings";
+import { handleCreateCarButton } from "../../controllers/handleCreateCarButton";
 
 export const addSettings = (main: HTMLElement | null) => {
   const createField = createElement("div", "create-field");
@@ -8,6 +9,8 @@ export const addSettings = (main: HTMLElement | null) => {
 
   addSettingsItem(main, createField, "Create");
   addSettingsItem(main, updateField, "Update");
+
+  handleCreateCarButton(createField);
 
   const buttonsWrapper = createElement("div", "buttons-wrapper");
 

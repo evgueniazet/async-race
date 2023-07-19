@@ -1,6 +1,6 @@
 import { deleteCar } from "../api/deleteCar";
 
-export const removeCar = (removeButton: HTMLElement) => {
+export const handleRemoveCarButton = (removeButton: HTMLElement) => {
   const handleRemoveButtonClick = (event: Event) => {
     if (event.target instanceof Element) {
       const race = event.target.closest(".race");

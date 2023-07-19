@@ -13,7 +13,7 @@ export const createCombobox = () => {
   const datalistElement = createElement("datalist", "combobox-datalist");
   datalistElement.id = "options";
 
-  const options: string[] = ["Option 1", "Option 2", "Option 3"]; // replace with real data
+  const options: string[] = ["Tesla", "BMW", "Mersedes", "Ford"]; // replace with real data
 
   options.forEach((optionText) => {
     const optionElement: HTMLOptionElement = createElement(
