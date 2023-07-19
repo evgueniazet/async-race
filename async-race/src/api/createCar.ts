@@ -16,17 +16,11 @@ export const createCar = async (name: string, color: string) => {
 
     if (response.status === 201) {
       const newCar = await response.json();
-      console.log("Машина успешно создана:");
-      console.log(newCar);
       return newCar;
-    } else {
-      console.log("Произошла ошибка при создании машины.");
     }
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.error("Ошибка при выполнении запроса POST:", error.message);
-    } else {
-      console.error("Неизвестная ошибка при выполнении запроса POST.");
+      console.error(error.message);
     }
   }
 };

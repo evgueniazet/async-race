@@ -4,47 +4,50 @@ import { ICar } from "../../interfaces/ICar";
 import { handleRemoveCarButton } from "../../controllers/handleRemoveCarButton";
 import { carIcon } from "../../icons/carIcon";
 import { flagIcon } from "../../icons/flagIcon";
+import { handleChangeCar } from "../../controllers/handleChangeCar";
 
 export const createCarItem = (car: ICar, racesField: HTMLElement) => {
-    const race: HTMLElement = createElement("div", "race");
-    racesField.appendChild(race);
+  const race: HTMLElement = createElement("div", "race");
+  racesField.appendChild(race);
 
-    const raceHeader: HTMLElement = createElement("div", "race-header");
-    race.appendChild(raceHeader);
+  const raceHeader: HTMLElement = createElement("div", "race-header");
+  race.appendChild(raceHeader);
 
-    const selectButton: HTMLElement = createButton(
-      "race-header-button",
-      "Select"
-    );
-    raceHeader.appendChild(selectButton);
+  const selectButton: HTMLElement = createButton(
+    "race-header-button",
+    "Select"
+  );
+  raceHeader.appendChild(selectButton);
 
-    const removeButton: HTMLElement = createButton(
-      "race-header-button",
-      "Remove"
-    );
-    raceHeader.appendChild(removeButton);
+  handleChangeCar(selectButton);
 
-    handleRemoveCarButton(removeButton);
+  const removeButton: HTMLElement = createButton(
+    "race-header-button",
+    "Remove"
+  );
+  raceHeader.appendChild(removeButton);
 
-    const title: HTMLElement = createElement("h3", "race-header-title");
-    title.innerText = car.name;
-    raceHeader.appendChild(title);
+  handleRemoveCarButton(removeButton);
 
-    const raceWrapper: HTMLElement = createElement("div", "race-wrapper");
-    race.appendChild(raceWrapper);
+  const title: HTMLElement = createElement("h3", "race-header-title");
+  title.innerText = car.name;
+  raceHeader.appendChild(title);
 
-    const carWrapper: HTMLElement = createElement("div", "car-wrapper");
-    raceWrapper.appendChild(carWrapper);
-    carWrapper.innerHTML = carIcon;
-    carWrapper.id = String(car.id);
+  const raceWrapper: HTMLElement = createElement("div", "race-wrapper");
+  race.appendChild(raceWrapper);
 
-    const carElem = race.querySelector(".car") as HTMLElement;
+  const carWrapper: HTMLElement = createElement("div", "car-wrapper");
+  raceWrapper.appendChild(carWrapper);
+  carWrapper.innerHTML = carIcon;
+  carWrapper.id = String(car.id);
 
-    if (carElem) {
-      carElem.style.fill = car.color;
-    }
+  const carElem = race.querySelector(".car") as HTMLElement;
 
-    const flagWrapper = createElement("div", "flag-wrapper");
-    raceWrapper.appendChild(flagWrapper);
-    flagWrapper.innerHTML = flagIcon;
-  };
+  if (carElem) {
+    carElem.style.fill = car.color;
+  }
+
+  const flagWrapper = createElement("div", "flag-wrapper");
+  raceWrapper.appendChild(flagWrapper);
+  flagWrapper.innerHTML = flagIcon;
+};

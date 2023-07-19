@@ -138,6 +138,11 @@
             &:not(:first-child) {
                 margin-left: 10px;
             }
+
+            &-active {
+                background-color: $primaryLight;
+                color: $bg;
+            }
         }
 
         &-title {

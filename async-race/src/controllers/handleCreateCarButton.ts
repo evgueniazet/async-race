@@ -1,25 +1,31 @@
+import { getInputsData } from "../utils/getInputsData";
 import { createCar } from "../api/createCar";
 import { createCarItem } from "../pages/garage/createCarItem";
+import { ICarParams } from "../interfaces/ICar";
 
 export const handleCreateCarButton = (createField: HTMLElement) => {
   const createButton = createField.querySelector(".field-button");
 
   const handleCreateCarButtonClick = () => {
-    const colorInput = createField.querySelector(".field-input");
-    const comboboxInput = createField.querySelector(".combobox-input");
+    const inputsData = getInputsData(createField);
 
-    if (
-      colorInput instanceof HTMLInputElement &&
-      comboboxInput instanceof HTMLInputElement
-    ) {
-      const selectedColor = colorInput.value;
-      const comboboxValue = comboboxInput.value;
-      const carData = createCar(comboboxValue, selectedColor);
-      const racesField = document.querySelector(".races-field") as HTMLInputElement;
+    if (inputsData) {
+      const { name: comboboxValue, color: selectedColor } = inputsData;
 
-      carData.then((car) => {
-        createCarItem(car, racesField);
-      });
+      if (
+        typeof comboboxValue === "string" &&
+        typeof selectedColor === "string"
+      ) {
+        const carData = createCar(comboboxValue, selectedColor);
+
+        const racesField = document.querySelector(
+          ".races-field"
+        ) as HTMLInputElement;
+
+        carData.then((car) => {
+          createCarItem(car, racesField);
+        });
+      }
     }
   };
 
