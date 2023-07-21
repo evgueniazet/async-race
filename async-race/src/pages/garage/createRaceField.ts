@@ -1,13 +1,13 @@
-import { fetchCarsData } from "../../api/fetchCarsData";
-import { createCarItem } from "./createCarItem";
-import { ICar } from "../../interfaces/ICar";
+import { drawCarsOnPage } from "../../utils/drawCarsOnPage";
+import { pagination } from "../../controllers/pagination";
+import { createCarStorage } from "../../utils/createCarStorage";
 
 export const createRaceField = (racesField: HTMLElement): void => {
-  const cars = fetchCarsData();
+  const page = localStorage.getItem("page");
+  const carsArrayPromise = createCarStorage();
 
-  cars.then((result) => {
-    result.forEach((car: ICar) => {
-      createCarItem(car, racesField);
-    });
+  carsArrayPromise.then((carsArray) => {
+    drawCarsOnPage(carsArray, Number(page), racesField);
+    pagination(carsArray, racesField);
   });
 };

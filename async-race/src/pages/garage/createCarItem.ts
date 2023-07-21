@@ -36,8 +36,20 @@ export const createCarItem = (car: ICar, racesField: HTMLElement) => {
   const raceWrapper: HTMLElement = createElement("div", "race-wrapper");
   race.appendChild(raceWrapper);
 
+  const carContainer = createElement("div", "car-container");
+  raceWrapper.appendChild(carContainer);
+
+  const buttonsContainer = createElement("div", "buttons-container");
+  carContainer.appendChild(buttonsContainer);
+
+  const buttonOn = createButton("button-motor", "A");
+  buttonsContainer.appendChild(buttonOn);
+
+  const buttonOff = createButton("button-motor", "B");
+  buttonsContainer.appendChild(buttonOff);
+
   const carWrapper: HTMLElement = createElement("div", "car-wrapper");
-  raceWrapper.appendChild(carWrapper);
+  carContainer.appendChild(carWrapper);
   carWrapper.innerHTML = carIcon;
   carWrapper.id = String(car.id);
 
