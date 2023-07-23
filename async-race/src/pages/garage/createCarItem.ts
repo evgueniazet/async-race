@@ -42,10 +42,10 @@ export const createCarItem = (car: ICar, racesField: HTMLElement) => {
   const buttonsContainer = createElement("div", "buttons-container");
   carContainer.appendChild(buttonsContainer);
 
-  const buttonOn = createButton("button-motor", "A");
+  const buttonOn = createButton("button-motor-on", "A");
   buttonsContainer.appendChild(buttonOn);
 
-  const buttonOff = createButton("button-motor", "B");
+  const buttonOff = createButton("button-motor-off", "B");
   buttonsContainer.appendChild(buttonOff);
 
   const carWrapper: HTMLElement = createElement("div", "car-wrapper");

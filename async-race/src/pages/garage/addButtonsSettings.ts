@@ -1,4 +1,5 @@
 import { createButton } from "../../pages/components/createButton";
+import { handleGenerateCars } from "../../controllers/handleGenerateCars";
 
 export const addButtonsSettings = (
   main: HTMLElement | null,
@@ -14,4 +15,6 @@ export const addButtonsSettings = (
 
   const buttonGenerateCars = createButton("button-generate", "Generate Cars");
   buttonsWrapper.appendChild(buttonGenerateCars);
+
+  handleGenerateCars();
 };

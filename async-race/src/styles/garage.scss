@@ -110,6 +110,7 @@
     &-header {
         display: flex;
         position: relative;
+        margin-top: 15px;
 
         &::before {
             content: '';
@@ -156,7 +157,14 @@
 
 .car {
     width: 100px;
-    margin-left: 15px;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+
+    &-wrapper {
+        position: relative;
+    }
+
 
     &-container {
         display: flex;
@@ -170,28 +178,46 @@
 
 .button-motor {
 
-    margin-left: 10px;
-    background-color: transparent;
-    border: 1px solid $lightBright;
-    border-radius: 4px;
-    color: $lightBright;
-    cursor: pointer;
-    padding: 8px;
-    height: 30px;
-    transition: color .3s ease, border .3s ease;
-
-    &:hover {
-        color: $primaryLight;
-        border: 1px solid $primaryLight;
+    &-on {
+        margin-left: 10px;
+        background-color: transparent;
+        border: 1px solid $lightBright;
+        border-radius: 4px;
+        color: $lightBright;
+        cursor: pointer;
+        padding: 8px;
+        height: 30px;
         transition: color .3s ease, border .3s ease;
+
+        &:hover {
+            color: $primaryLight;
+            border: 1px solid $primaryLight;
+            transition: color .3s ease, border .3s ease;
+        }
+
     }
 
-    &:not(:first-child) {
+    &-off {
+        margin-left: 10px;
+        background-color: transparent;
+        border: 1px solid $lightBright;
+        border-radius: 4px;
+        color: $lightBright;
+        cursor: pointer;
+        padding: 8px;
+        height: 30px;
+        transition: color .3s ease, border .3s ease;
         margin-left: 10px;
         color: $secondary;
         border: 1px solid $secondary;
-    }
 
+        &:hover {
+            color: $primaryLight;
+            border: 1px solid $primaryLight;
+            transition: color .3s ease, border .3s ease;
+        }
+
+    }
 }
 
 .flag {

@@ -9,6 +9,7 @@ export const addGaragePage = async (): Promise<void> => {
     const cars = await fetchCarsData();
 
     const main: HTMLElement | null = document.querySelector("main");
+    const pageNumber = Number(localStorage.getItem("page"));
 
     addSettings(main);
 
@@ -19,7 +20,7 @@ export const addGaragePage = async (): Promise<void> => {
 
     const subtitle: HTMLElement = createElement("h2", "garage-subtitle");
     main?.appendChild(subtitle);
-    subtitle.innerText = "Page #1";
+    subtitle.innerText = `Page #${pageNumber}`;
 
     const racesField: HTMLElement = createElement("div", "races-field");
     main?.appendChild(racesField);
