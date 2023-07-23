@@ -9,6 +9,7 @@ export const handleCreateCarButton = (createField: HTMLElement) => {
   const handleCreateCarButtonClick = () => {
     const inputsData = getInputsData(createField);
     const carLength = document.querySelectorAll(".race").length;
+    const garageTitle = document.querySelector(".garage-title");
 
     if (inputsData) {
       const { name: comboboxValue, color: selectedColor } = inputsData;
@@ -23,10 +24,15 @@ export const handleCreateCarButton = (createField: HTMLElement) => {
           ".races-field"
         ) as HTMLInputElement;
 
-        carData.then((car) => {
-          createCarStorage();
+        carData.then(async (car) => {
+          const cars = await createCarStorage();
           if (carLength < 6) {
             createCarItem(car, racesField);
+
+            if (garageTitle) {
+              const carsFlattenedArr = cars.flat();
+              garageTitle.innerHTML = `Garage(${carsFlattenedArr.length})`;
+            }
           }
         });
       }

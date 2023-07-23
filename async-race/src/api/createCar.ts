@@ -18,7 +18,7 @@ export const createCar = async (name: string, color: string) => {
       const newCar = await response.json();
       return newCar;
     }
-  } catch (error: unknown) {
+  } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
     }

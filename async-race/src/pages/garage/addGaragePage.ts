@@ -3,6 +3,7 @@ import { createButton } from "../../pages/components/createButton";
 import { addSettings } from "./addSettings";
 import { createRaceField } from "./createRaceField";
 import { fetchCarsData } from "../../api/fetchCarsData";
+import { handleGenerateCars } from "../../controllers/handleGenerateCars";
 
 export const addGaragePage = async (): Promise<void> => {
   try {
@@ -35,6 +36,8 @@ export const addGaragePage = async (): Promise<void> => {
 
     const nextButton = createButton("garage-button", "Next");
     garageButtons.appendChild(nextButton);
+
+    handleGenerateCars();
   } catch (error) {
     console.error(error);
   }

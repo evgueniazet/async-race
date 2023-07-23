@@ -1,4 +1,4 @@
-export const startCarMotor = async (carId: number) => {
+export const startCar = async (carId: number) => {
   const apiUrl = `http://localhost:3000/engine?id=${carId}&status=started`;
 
   const requestData = {

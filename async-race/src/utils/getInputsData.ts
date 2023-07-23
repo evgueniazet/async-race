@@ -14,6 +14,9 @@ export const getInputsData = (field: HTMLElement) => {
       name,
     };
 
+    colorInput.value = "";
+    comboboxInput.value = "";
+
     return inputsData;
   }
 

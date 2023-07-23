@@ -1,8 +1,12 @@
 import { createCar } from "../api/createCar";
 import { getRandomItemFromArray } from "../utils/getRandomItemFromArray";
+import { createCarStorage } from "../utils/createCarStorage";
+import { createRaceField } from "../pages/garage/createRaceField";
 
 export const handleGenerateCars = () => {
   const generateCarsButton = document.querySelector(".button-generate");
+  const garageTitle = document.querySelector(".garage-title");
+  const racesField = document.querySelector(".races-field") as HTMLElement;
 
   const handleGenerateCarsButton = async () => {
     const getRandomColor = () => {
@@ -71,10 +75,21 @@ export const handleGenerateCars = () => {
           count++;
         }
       }
-      console.log("All 100 cars created successfully!");
     };
 
-    create100Cars();
+    await create100Cars();
+
+    if (racesField) {
+      racesField.innerHTML = "";
+      createRaceField(racesField);
+    }
+
+    const cars = await createCarStorage();
+    const carsFlattenedArr = cars.flat();
+
+    if (garageTitle) {
+      garageTitle.innerHTML = `Garage(${carsFlattenedArr.length})`;
+    }
   };
 
   generateCarsButton?.addEventListener("click", handleGenerateCarsButton);

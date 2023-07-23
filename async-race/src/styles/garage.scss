@@ -189,10 +189,10 @@
         height: 30px;
         transition: color .3s ease, border .3s ease;
 
-        &:hover {
-            color: $primaryLight;
-            border: 1px solid $primaryLight;
-            transition: color .3s ease, border .3s ease;
+        &-disabled {
+            color: $secondary;
+            border: 1px solid $secondary;
+            cursor: auto;
         }
 
     }
@@ -203,20 +203,17 @@
         border: 1px solid $lightBright;
         border-radius: 4px;
         color: $lightBright;
-        cursor: pointer;
         padding: 8px;
         height: 30px;
-        transition: color .3s ease, border .3s ease;
         margin-left: 10px;
         color: $secondary;
         border: 1px solid $secondary;
 
-        &:hover {
+        &-active {
+            cursor: pointer;
             color: $primaryLight;
             border: 1px solid $primaryLight;
-            transition: color .3s ease, border .3s ease;
         }
-
     }
 }
 

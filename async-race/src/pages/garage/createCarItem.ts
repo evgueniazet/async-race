@@ -46,6 +46,7 @@ export const createCarItem = (car: ICar, racesField: HTMLElement) => {
   buttonsContainer.appendChild(buttonOn);
 
   const buttonOff = createButton("button-motor-off", "B");
+  buttonOff.setAttribute("disabled", "");
   buttonsContainer.appendChild(buttonOff);
 
   const carWrapper: HTMLElement = createElement("div", "car-wrapper");
