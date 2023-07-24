@@ -5,25 +5,22 @@ export const handleStartRace = () => {
 
   const handleStartRaceButton = async () => {
     const carWrappers = document.querySelectorAll(".car-wrapper");
-    const raceButtons = document.querySelectorAll(".button-motor-on");
+    const raceButtonsOn = document.querySelectorAll(".button-motor-on");
+    const carWrappersArray = Array.from(carWrappers) as HTMLElement[];
 
-    raceButtons.forEach((button) => {
+    raceButtonsOn.forEach((button) => {
       button.classList.add("button-motor-on-disabled");
       button.setAttribute("disabled", "");
     });
 
-    const racePromises = Array.from(carWrappers).map(async (car) => {
-      const raceWrapper = car.closest(".race-wrapper") as HTMLElement;
-      startCarFunc(raceWrapper);
-    });
+    await Promise.all(
+      carWrappersArray.map(async (car) => {
+        const raceWrapper = car.closest(".race-wrapper") as HTMLElement;
+        await startCarFunc(raceWrapper);
+      })
+    );
 
-    try {
-      await Promise.all(racePromises);
-    } catch (error) {
-      console.error(error);
-    }
-
-    raceButtons.forEach((button) => {
+    raceButtonsOn.forEach((button) => {
       button.classList.remove("button-motor-on-disabled");
       button.removeAttribute("disabled");
     });

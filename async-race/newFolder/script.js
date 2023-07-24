@@ -1,1 +1,0 @@
-fetch('localhost:3000/garage').then((res) => res.json()).then((data) => console.log(data));

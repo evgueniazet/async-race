@@ -1,8 +1,8 @@
-import { fetchCarsData } from "../api/fetchCarsData";
+import { getCars } from "../api/getCars";
 import { ICar } from "../interfaces/ICar";
 
 export const createCarStorage = () => {
-  return fetchCarsData().then((result) => {
+  return getCars().then((result) => {
     let carsArray: ICar[][] = [];
     let carsInPageArr: ICar[] = [];
     const carsOnPage = 7;

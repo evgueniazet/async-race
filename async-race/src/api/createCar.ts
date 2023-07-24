@@ -1,17 +1,17 @@
 export const createCar = async (name: string, color: string) => {
   try {
-    const apiUrl = "http://localhost:3000/garage";
-    const carData = {
+    const url = "http://localhost:3000/garage";
+    const data = {
       name: name,
       color: color,
     };
 
-    const response = await fetch(apiUrl, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(carData),
+      body: JSON.stringify(data),
     });
 
     if (response.status === 201) {

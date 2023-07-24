@@ -2,13 +2,14 @@ import { createElement } from "../../utils/createElement";
 import { createButton } from "../../pages/components/createButton";
 import { addSettings } from "./addSettings";
 import { createRaceField } from "./createRaceField";
-import { fetchCarsData } from "../../api/fetchCarsData";
+import { getCars } from "../../api/getCars";
 import { handleGenerateCars } from "../../controllers/handleGenerateCars";
 import { handleStartRace } from "../../controllers/handleStartRace";
+import { handleResetRace } from "../../controllers/handleResetRace";
 
 export const addGaragePage = async (): Promise<void> => {
   try {
-    const cars = await fetchCarsData();
+    const cars = await getCars();
 
     const main: HTMLElement | null = document.querySelector("main");
     const pageNumber = Number(localStorage.getItem("page"));
@@ -40,6 +41,7 @@ export const addGaragePage = async (): Promise<void> => {
 
     handleGenerateCars();
     handleStartRace();
+    handleResetRace();
   } catch (error) {
     console.error(error);
   }

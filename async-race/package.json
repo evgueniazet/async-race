@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.build.js --mode production ",
     "lint": "eslint src --ext .ts"
   },
   "devDependencies": {

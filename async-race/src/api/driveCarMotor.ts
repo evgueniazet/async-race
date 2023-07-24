@@ -1,7 +1,7 @@
 import { stopIconAnimation } from "../utils/moveIcon";
 
-export const driveCarMotor = async (carId: number, car: HTMLElement) => {
-  const url = `http://localhost:3000/engine?id=${carId}&status=drive`;
+export const driveCarMotor = async (id: number) => {
+  const url = `http://localhost:3000/engine?id=${id}&status=drive`;
   try {
     const response = await fetch(url, {
       method: "PATCH",

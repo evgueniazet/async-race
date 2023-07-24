@@ -20,7 +20,7 @@ export const startCarFunc = async (raceWrapper: HTMLElement) => {
 
     await Promise.all([
       moveIcon(car as HTMLElement, startX, finishX, driveTime),
-      driveCarMotor(Number(carId), car),
+      driveCarMotor(Number(carId)),
     ]);
   }
 };

@@ -1,18 +1,9 @@
-export const startCar = async (carId: number) => {
-  const apiUrl = `http://localhost:3000/engine?id=${carId}&status=started`;
-
-  const requestData = {
-    id: carId,
-    status: "started",
-  };
+export const startCar = async (id: number) => {
+  const url = `http://localhost:3000/engine?id=${id}&status=started`;
 
   try {
-    const response = await fetch(apiUrl, {
+    const response = await fetch(url, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestData),
     });
 
     if (response.ok) {

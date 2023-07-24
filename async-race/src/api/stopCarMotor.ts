@@ -7,18 +7,12 @@ export const stopCarMotor = async (id: number) => {
     });
 
     if (response.ok) {
-      const data = await response.json();
-      const { velocity, distance } = data;
-      console.log(`Car stopped successfully.`);
-      console.log(`Actual velocity: ${velocity} km/h`);
-      console.log(`Actual distance: ${distance} km`);
+      await response.json();
     } else if (response.status === 404) {
-      console.log(`Car with id ${id} was not found in the garage.`);
+      throw new Error(`Car with id ${id} was not found in the garage.`);
     } else if (response.status === 400) {
       const errorData = await response.json();
-      console.log("Error:", errorData.content);
-    } else {
-      console.log("Something went wrong.");
+      console.error(errorData.content);
     }
   } catch (error) {
     if (error instanceof Error) {
