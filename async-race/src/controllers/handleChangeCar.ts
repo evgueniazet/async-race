@@ -1,10 +1,10 @@
 import { getInputsData } from "../utils/getInputsData";
 import { updateCar } from "../api/updateCar";
 import { ICarParams } from "../interfaces/ICar";
-import { changeRgbToHex } from "../utils/changeRgbToHex";
+import { getCar } from "../api/getCar";
 
 export const handleChangeCar = (selectButton: HTMLElement) => {
-  const handleSelectButtonClick = (event: Event) => {
+  const handleSelectButtonClick = async (event: Event) => {
     if (event.target instanceof Element) {
       const race = event.target.closest(".race");
       if (race) {
@@ -16,14 +16,17 @@ export const handleChangeCar = (selectButton: HTMLElement) => {
           ".update-field"
         ) as HTMLElement;
         const nameInput = updateField?.querySelector(".combobox-input");
-        const colorInput = updateField?.querySelector(".field-input");
-        (nameInput as HTMLInputElement).value = carName?.innerHTML || "";
 
-        const carStyle = car && window.getComputedStyle(car);
-        const fillValue = carStyle && carStyle.getPropertyValue("fill");
-
-        const hexColorValue = changeRgbToHex(fillValue);
-        (colorInput as HTMLInputElement).value = hexColorValue;
+        if (carWrapper) {
+          try {
+            const currentCar = await getCar(Number(carWrapper.id));
+            const colorInput = updateField?.querySelector(".field-input");
+            (colorInput as HTMLInputElement).value = currentCar.color;
+            (nameInput as HTMLInputElement).value = currentCar.name || "";
+          } catch (error) {
+            console.error("Error fetching car:", error);
+          }
+        }
 
         const handleUpdateButtonClick = () => {
           const inputsData = getInputsData(updateField);
@@ -48,7 +51,6 @@ export const handleChangeCar = (selectButton: HTMLElement) => {
     }
 
     selectButton.classList.add("race-header-button-active");
-    const updateField = document.querySelector(".update-field") as HTMLElement;
   };
 
   selectButton.addEventListener("click", handleSelectButtonClick);

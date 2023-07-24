@@ -67,9 +67,10 @@ export const handleGenerateCars = () => {
       }
     };
 
-    const create100Cars = async () => {
+    const generateCars = async () => {
       let count = 0;
-      while (count < 100) {
+      let maxCount = 100;
+      while (count < maxCount) {
         const success = await createRandomCar();
         if (success) {
           count++;
@@ -77,7 +78,7 @@ export const handleGenerateCars = () => {
       }
     };
 
-    await create100Cars();
+    await generateCars();
 
     if (racesField) {
       racesField.innerHTML = "";
