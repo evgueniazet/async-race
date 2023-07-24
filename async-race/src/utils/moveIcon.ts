@@ -1,4 +1,8 @@
+import { addWinnerMessage } from "../pages/garage/addWinnerMessage";
+
 let animationId: number | null = null;
+let isFirstCarReached = false;
+// let winnerNumber = 1;
 
 export const moveIcon = (
   icon: HTMLElement,
@@ -13,11 +17,24 @@ export const moveIcon = (
     const elapsedTime = time - startTime;
     const progress = Math.min(elapsedTime / duration, 1);
     const newPosition = (distance - startX) * progress;
+    const buttonStartRace = document.querySelector(".button-race");
 
     icon.style.transform = `translateX(${newPosition}px)`;
 
     if (progress < 1) {
       animationId = requestAnimationFrame(animate);
+    } else {
+      if (
+        !isFirstCarReached &&
+        buttonStartRace &&
+        buttonStartRace.classList.contains("button-race-active")
+      ) {
+        // winnerNumber++;
+        // console.log(icon.id, duration, winnerNumber);
+
+        // addWinnerMessage(Number(icon.id), duration, winnerNumber);
+        isFirstCarReached = true;
+      }
     }
   };
 

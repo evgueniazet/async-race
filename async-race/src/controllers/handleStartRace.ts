@@ -8,6 +8,8 @@ export const handleStartRace = () => {
     const raceButtonsOn = document.querySelectorAll(".button-motor-on");
     const carWrappersArray = Array.from(carWrappers) as HTMLElement[];
 
+    buttonStartRace?.classList.add("button-race-active");
+
     raceButtonsOn.forEach((button) => {
       button.classList.add("button-motor-on-disabled");
       button.setAttribute("disabled", "");
