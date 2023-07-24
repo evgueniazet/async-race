@@ -27,7 +27,6 @@ export const createWinner = async (newWinnerData: {
     }
   } catch (error) {
     if (error instanceof Error) {
-      console.error("An error occurred:", error.message);
       throw error;
     }
   }

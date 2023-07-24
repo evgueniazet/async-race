@@ -1,8 +1,5 @@
-import { addWinnerMessage } from "../pages/garage/addWinnerMessage";
-
 let animationId: number | null = null;
 let isFirstCarReached = false;
-// let winnerNumber = 1;
 
 export const moveIcon = (
   icon: HTMLElement,
@@ -29,10 +26,6 @@ export const moveIcon = (
         buttonStartRace &&
         buttonStartRace.classList.contains("button-race-active")
       ) {
-        // winnerNumber++;
-        // console.log(icon.id, duration, winnerNumber);
-
-        // addWinnerMessage(Number(icon.id), duration, winnerNumber);
         isFirstCarReached = true;
       }
     }

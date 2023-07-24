@@ -1,7 +1,7 @@
 import { startCar } from "../api/startCar";
 import { moveIcon } from "../utils/moveIcon";
 import { driveCarMotor } from "../api/driveCarMotor";
-import { addWinnerMessage } from "../pages/garage/addWinnerMessage";
+import { handleWinner } from "../pages/garage/handleWinner";
 
 let isWin = true;
 
@@ -30,13 +30,12 @@ export const startCarFunc = async (raceWrapper: HTMLElement) => {
         const driveCarMotorResult = result[1];
 
         if (driveCarMotorResult && driveCarMotorResult.success && isWin) {
-          //   console.log("driveCarMotorResult", driveCarMotorResult);
-          addWinnerMessage(Number(car.id), driveTime, wins);
+          handleWinner(Number(car.id), driveTime, wins);
           isWin = false;
         }
       })
       .catch((error) => {
-        console.error("An error occurred:", error);
+        console.error(error);
       });
   }
 };

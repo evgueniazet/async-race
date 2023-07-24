@@ -12,8 +12,6 @@
     margin-top: 15px;
 }
 
-
-
 .combobox {
     &-input {
         background-color: transparent;
@@ -224,4 +222,13 @@
     width: 70px;
     stroke: $red;
     fill: $red;
+}
+
+
+.win-message {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    font-size: 20px;
+    color: $lightBright;
 }

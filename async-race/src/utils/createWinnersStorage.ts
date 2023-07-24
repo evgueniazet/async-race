@@ -11,8 +11,6 @@ export const updateWinnersStorage = async (newWinnerData: {
   wins: number;
   time: number;
 }) => {
-  console.log("1");
-
   const winnersStorage = await createWinnersStorage();
 
   winnersStorage.forEach((winner: IWinner) => {
@@ -21,6 +19,4 @@ export const updateWinnersStorage = async (newWinnerData: {
       winner.wins = winner.wins + 1;
     }
   });
-
-  console.log("winnersStorage после обновления", winnersStorage);
 };

@@ -29,7 +29,6 @@ export const updateWinner = async (newWinnerData: {
     }
 
     const updatedWinner = await response.json();
-    console.log("Updated Winner:", updatedWinner);
     return updatedWinner;
   } catch (error) {
     if (error instanceof Error) {

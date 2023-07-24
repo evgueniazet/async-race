@@ -4,8 +4,9 @@ import { IWinner } from "../../interfaces/IWinner";
 import { createWinnersStorage } from "../../utils/createWinnersStorage";
 import { updateWinnersStorage } from "../../utils/createWinnersStorage";
 import { updateWinner } from "../../api/updateWinner";
+import { addWinMessage } from "./addWinMessage";
 
-export const addWinnerMessage = async (
+export const handleWinner = async (
   id: number,
   duration: number,
   wins: number
@@ -19,20 +20,18 @@ export const addWinnerMessage = async (
 
   const winnersObj = await getWinners();
 
-  console.log("winnersObj , id", winnersObj, id);
-
   const isIdExist = winnersObj.winners.every(
     (winner: IWinner) => winner.id !== id
   );
 
-  console.log("isIdExist", isIdExist);
-
   if (isIdExist) {
-    const createdWinner = await createWinner(newWinnerData);
-    // console.log("createdWinner", createdWinner);
+    await createWinner(newWinnerData);
+
     createWinnersStorage();
   } else {
     updateWinner(newWinnerData);
     updateWinnersStorage(newWinnerData);
   }
+
+  addWinMessage(id, time);
 };
