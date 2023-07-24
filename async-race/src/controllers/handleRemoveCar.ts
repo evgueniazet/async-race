@@ -2,7 +2,7 @@ import { deleteCar } from "../api/deleteCar";
 import { createCarStorage } from "../utils/createCarStorage";
 import { createRaceField } from "../pages/garage/createRaceField";
 
-export const handleRemoveCarButton = (removeButton: HTMLElement) => {
+export const handleRemoveCar = (removeButton: HTMLElement) => {
   const handleRemoveButtonClick = async (event: Event) => {
     if (event.target instanceof Element) {
       const race = event.target.closest(".race");

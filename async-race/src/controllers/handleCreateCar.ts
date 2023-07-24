@@ -3,7 +3,7 @@ import { createCar } from "../api/createCar";
 import { createCarItem } from "../pages/garage/createCarItem";
 import { createCarStorage } from "../utils/createCarStorage";
 
-export const handleCreateCarButton = (createField: HTMLElement) => {
+export const handleCreateCar = (createField: HTMLElement) => {
   const createButton = createField.querySelector(".field-button");
 
   const handleCreateCarButtonClick = () => {

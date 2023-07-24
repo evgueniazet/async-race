@@ -1,4 +1,4 @@
-import { resetIconPosition } from "../utils/moveIcon";
+import { stopIconAnimation } from "../utils/moveIcon";
 
 export const driveCarMotor = async (carId: number, car: HTMLElement) => {
   const url = `http://localhost:3000/engine?id=${carId}&status=drive`;
@@ -9,7 +9,7 @@ export const driveCarMotor = async (carId: number, car: HTMLElement) => {
 
     if (!response.ok) {
       if (response.status === 500) {
-        resetIconPosition(car);
+        stopIconAnimation();
         throw new Error(
           "Car has been stopped suddenly. Its engine was broken down."
         );

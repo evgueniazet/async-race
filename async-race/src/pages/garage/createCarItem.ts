@@ -1,7 +1,7 @@
 import { createElement } from "../../utils/createElement";
 import { createButton } from "../../pages/components/createButton";
 import { ICar } from "../../interfaces/ICar";
-import { handleRemoveCarButton } from "../../controllers/handleRemoveCarButton";
+import { handleRemoveCar } from "../../controllers/handleRemoveCar";
 import { carIcon } from "../../icons/carIcon";
 import { flagIcon } from "../../icons/flagIcon";
 import { handleChangeCar } from "../../controllers/handleChangeCar";
@@ -27,7 +27,7 @@ export const createCarItem = (car: ICar, racesField: HTMLElement) => {
   );
   raceHeader.appendChild(removeButton);
 
-  handleRemoveCarButton(removeButton);
+  handleRemoveCar(removeButton);
 
   const title: HTMLElement = createElement("h3", "race-header-title");
   title.innerText = car.name;

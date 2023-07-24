@@ -4,6 +4,7 @@ import { addSettings } from "./addSettings";
 import { createRaceField } from "./createRaceField";
 import { fetchCarsData } from "../../api/fetchCarsData";
 import { handleGenerateCars } from "../../controllers/handleGenerateCars";
+import { handleStartRace } from "../../controllers/handleStartRace";
 
 export const addGaragePage = async (): Promise<void> => {
   try {
@@ -38,6 +39,7 @@ export const addGaragePage = async (): Promise<void> => {
     garageButtons.appendChild(nextButton);
 
     handleGenerateCars();
+    handleStartRace();
   } catch (error) {
     console.error(error);
   }
