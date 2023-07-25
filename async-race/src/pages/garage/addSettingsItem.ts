@@ -10,6 +10,7 @@ export const addSettingsItem = (
   main?.appendChild(field);
 
   const comboboxField = createCombobox();
+
   field.appendChild(comboboxField);
 
   const colorInput: HTMLInputElement = createElement("input", "field-input");

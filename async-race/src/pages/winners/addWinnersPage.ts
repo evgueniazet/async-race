@@ -7,7 +7,6 @@ export const addWinnersPage = () => {
   main?.appendChild(title);
   title.innerText = "Winners(5)";
 
-  
   const subtitle: HTMLElement = createElement("h2", "winners-subtitle");
   main?.appendChild(subtitle);
   subtitle.innerText = "Page #1";
