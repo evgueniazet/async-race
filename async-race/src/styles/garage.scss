@@ -196,10 +196,13 @@
 }
 
 .car {
-    width: 100px;
-    position: absolute;
-    top: 0px;
-    left: 15px;
+
+    &-icon {
+        width: 100px;
+        position: absolute;
+        top: 0px;
+        left: 15px;
+    }
 
     &-wrapper {
         position: relative;

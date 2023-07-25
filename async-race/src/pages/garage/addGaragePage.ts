@@ -39,6 +39,9 @@ export const addGaragePage = async (): Promise<void> => {
     const nextButton = createButton("garage-button", "Next");
     garageButtons.appendChild(nextButton);
 
+    const winMessage = createElement("span", "win-message");
+    main?.appendChild(winMessage);
+
     handleGenerateCars();
     handleStartRace();
     handleResetRace();

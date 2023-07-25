@@ -54,6 +54,9 @@ export const createCarItem = (car: ICar, racesField: HTMLElement) => {
   carWrapper.innerHTML = carIcon;
   carWrapper.id = String(car.id);
 
+  const carIconElement = carWrapper.querySelector(".car");
+  carIconElement?.classList.add("car-icon");
+
   const carElem = race.querySelector(".car") as HTMLElement;
 
   if (carElem) {

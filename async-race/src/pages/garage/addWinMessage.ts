@@ -1,14 +1,7 @@
-import { createElement } from "../../utils/createElement";
-
 export const addWinMessage = (id: number, time: number) => {
   const cars = document.querySelectorAll(".car-wrapper");
-  const main = document.querySelector("main");
 
-  const winMessage = createElement("span", "win-message");
-
-  if (main) {
-    main.appendChild(winMessage);
-  }
+  const winMessage = document.querySelector(".win-message") as HTMLElement;
 
   const timeRound = time.toFixed(2);
 

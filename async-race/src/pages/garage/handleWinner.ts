@@ -18,6 +18,8 @@ export const handleWinner = async (
     time: time,
   };
 
+  const buttonRaceOn = document.querySelector(".button-race") as HTMLElement;
+
   const winnersObj = await getWinners();
 
   const isIdExist = winnersObj.winners.every(
@@ -33,5 +35,7 @@ export const handleWinner = async (
     updateWinnersStorage(newWinnerData);
   }
 
-  addWinMessage(id, time);
+  if (buttonRaceOn.classList.contains("button-race-disabled")) {
+    addWinMessage(id, time);
+  }
 };
