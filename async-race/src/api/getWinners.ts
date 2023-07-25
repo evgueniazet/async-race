@@ -1,6 +1,6 @@
 export const getWinners = async () => {
   try {
-    let url = "http://localhost:3000/winners";
+    let url = "http://127.0.0.1:3000/winners";
 
     const response = await fetch(url);
 

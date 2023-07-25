@@ -3,7 +3,7 @@ export const updateWinner = async (newWinnerData: {
   wins: number;
   time: number;
 }) => {
-  const url = `http://localhost:3000/winners/${newWinnerData.id}`;
+  const url = `http://127.0.0.1:3000/winners/${newWinnerData.id}`;
   const headers = {
     "Content-Type": "application/json",
   };

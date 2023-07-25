@@ -3,7 +3,7 @@ import { ICarParams } from "../interfaces/ICar";
 export const updateCar = async (id: number, dataParams: ICarParams) => {
   const { color, name } = dataParams;
 
-  const url = `http://localhost:3000/garage/${id}`;
+  const url = `http://127.0.0.1:3000/garage/${id}`;
   const headers = {
     "Content-Type": "application/json",
   };

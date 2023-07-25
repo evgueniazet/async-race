@@ -1,6 +1,6 @@
 export const deleteCar = async (id: number) => {
   try {
-    const url = `http://localhost:3000/garage/${id}`;
+    const url = `http://127.0.0.1:3000/garage/${id}`;
     await fetch(url, {
       method: "DELETE",
     });

@@ -1,6 +1,6 @@
 export const createCar = async (name: string, color: string) => {
   try {
-    const url = "http://localhost:3000/garage";
+    const url = "http://127.0.0.1:3000/garage";
     const data = {
       name: name,
       color: color,
