@@ -4,10 +4,10 @@ import { ICar } from "../interfaces/ICar";
 export const pagination = (cars: ICar[][], racesField: HTMLElement) => {
   const nextButton = document.querySelectorAll(".garage-button")[1];
   const prevButton = document.querySelectorAll(".garage-button")[0];
-  const pageNumber = document.querySelector(".garage-subtitle");
 
   const handleNextPage = () => {
     const page = localStorage.getItem("page");
+    const pageNumber = document.querySelector(".garage-subtitle");
 
     if (Number(page) < cars.length) {
       const newPage = Number(page) + 1;
@@ -26,6 +26,7 @@ export const pagination = (cars: ICar[][], racesField: HTMLElement) => {
 
   const handlePrevButton = () => {
     const page = localStorage.getItem("page");
+    const pageNumber = document.querySelector(".garage-subtitle");
 
     if (Number(page) > 1) {
       const newPage = Number(page) - 1;

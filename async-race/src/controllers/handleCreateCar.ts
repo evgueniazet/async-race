@@ -28,11 +28,11 @@ export const handleCreateCar = (createField: HTMLElement) => {
           const cars = await createCarStorage();
           if (carLength < 6) {
             createCarItem(car, racesField);
+          }
 
-            if (garageTitle) {
-              const carsFlattenedArr = cars.flat();
-              garageTitle.innerHTML = `Garage(${carsFlattenedArr.length})`;
-            }
+          if (garageTitle) {
+            const carsFlattenedArr = cars.flat();
+            garageTitle.innerHTML = `Garage(${carsFlattenedArr.length})`;
           }
         });
       }

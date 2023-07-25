@@ -6,9 +6,9 @@ export const stopCarFunc = async (racesField: HTMLElement) => {
   const carId = car?.getAttribute("id");
   const buttonMotorOn =
     racesField && racesField.querySelector(".button-motor-on");
-
   if (carId && car && buttonMotorOn) {
     await stopCarMotor(Number(carId));
+
     resetIconPosition(car);
     buttonMotorOn.classList.remove("button-motor-on-disabled");
   }

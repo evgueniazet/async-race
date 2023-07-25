@@ -24,7 +24,7 @@ export const moveIcon = (
       if (
         !isFirstCarReached &&
         buttonStartRace &&
-        buttonStartRace.classList.contains("button-race-active")
+        buttonStartRace.classList.contains("button-race-disabled")
       ) {
         isFirstCarReached = true;
       }

@@ -7,7 +7,8 @@ export const stopCarMotor = async (id: number) => {
     });
 
     if (response.ok) {
-      await response.json();
+      const responseData = await response.json();
+      return responseData;
     } else if (response.status === 404) {
       throw new Error(`Car with id ${id} was not found in the garage.`);
     } else if (response.status === 400) {

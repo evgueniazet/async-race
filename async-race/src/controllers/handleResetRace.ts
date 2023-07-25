@@ -2,17 +2,20 @@ import { stopCarFunc } from "./handleStopCar";
 
 export const handleResetRace = () => {
   const buttonResetRace = document.querySelector(".button-reset");
+  const buttonStartRace = document.querySelector(".button-race") as HTMLElement;
 
   const handleResetRaceButton = async () => {
     const carWrappers = document.querySelectorAll(".car-wrapper");
     const carWrappersArray = Array.from(carWrappers) as HTMLElement[];
 
-    const promises = carWrappersArray.map(async (car) => {
+    for (const car of carWrappersArray) {
       const raceWrapper = car.closest(".race-wrapper") as HTMLElement;
-      return stopCarFunc(raceWrapper);
-    });
+      await stopCarFunc(raceWrapper);
+    }
 
-    await Promise.all(promises);
+    buttonStartRace?.classList.remove("button-race-disabled");
+    buttonStartRace?.removeAttribute("disabled");
+    buttonStartRace.style.pointerEvents = "auto";
   };
 
   buttonResetRace?.addEventListener("click", handleResetRaceButton);
