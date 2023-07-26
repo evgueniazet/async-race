@@ -13,6 +13,9 @@ export const driveCarMotor = async (id: number) => {
         throw new Error(
           "Car has been stopped suddenly. Its engine was broken down."
         );
+      } else {
+        const textResponse = await response.text();
+        console.error("Non-JSON Response:", textResponse);
       }
     }
     return response.json();
